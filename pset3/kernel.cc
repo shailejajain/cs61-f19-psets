@@ -169,6 +169,7 @@ void process_setup(pid_t pid, const char* program_name) {
     vmiter k_it(kernel_pagetable, 0);
     vmiter p_it(ptable[pid].pagetable, 0);
     for (; k_it.va() < PROC_START_ADDR; p_it += PAGESIZE, k_it += PAGESIZE) {
+        //TODO: should it make a difference that we map in perm() vs. PTE_P | PTE_W
         uint64_t perm = k_it.perm();
         p_it.map(k_it.pa(), (int) perm);
     }
@@ -182,13 +183,13 @@ void process_setup(pid_t pid, const char* program_name) {
         for (uintptr_t a = round_down(loader.va(), PAGESIZE);
              a < loader.va() + loader.size();
              a += PAGESIZE, proc_addr += PAGESIZE) {
-//            my_it.find(a);
-//            uint64_t writeable = loader.writable() ? PTE_W : 0;
+            my_it.find(a);
+            uint64_t writeable = loader.writable() ? PTE_W : 0;
 //            uint64_t present = loader.present() ? PTE_P : 0;
             //void *new_page = kalloc(PAGESIZE);
             assert(!pages[a / PAGESIZE].used());
             pages[a / PAGESIZE].refcount = 1;
-//            my_it.map(proc_addr, (int) (writeable | PTE_P | PTE_U));
+            my_it.map(proc_addr, (int) (writeable | PTE_P | PTE_U));
         }
     }
 
@@ -204,11 +205,11 @@ void process_setup(pid_t pid, const char* program_name) {
 
     // allocate stack
     uintptr_t stack_addr = PROC_START_ADDR + PROC_SIZE * pid - PAGESIZE;
-//    assert(!pages[stack_addr / PAGESIZE].used());
+    assert(!pages[stack_addr / PAGESIZE].used());
     pages[stack_addr / PAGESIZE].refcount = 1;
     ptable[pid].regs.reg_rsp = stack_addr + PAGESIZE;
-//    vmiter it(ptable[pid].pagetable, stack_addr);
-//    it.map(stack_addr, PTE_P | PTE_W | PTE_U);
+    vmiter it(ptable[pid].pagetable, stack_addr);
+    it.map(stack_addr, PTE_P | PTE_W | PTE_U);
     // mark process as runnable
     ptable[pid].state = P_RUNNABLE;
     log_printf("exiting process setup\n");
