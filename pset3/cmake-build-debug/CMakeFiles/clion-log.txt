@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/shelleyjain/browncs/cs61-f19-psets/pset3
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug

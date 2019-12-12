@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="pset3"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pset3">
+				<Option output="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/pset3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 pset3"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pset3/fast">
+				<Option output="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/pset3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 pset3/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/shelleyjain/browncs/cs61-f19-psets/pset3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/boot.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/build/mkbootdisk.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/build/mkchickadeesymtab.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/build/qemu-nograb.c">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/elf.h">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/k-apic.hh">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/k-hardware.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/k-memviewer.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/k-pci.hh">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/k-vmiter.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/k-vmiter.hh">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/kernel.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/kernel.hh">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/lib.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/lib.hh">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/p-allocator.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/p-fork.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/p-forkexit.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/types.h">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/u-lib.cc">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/u-lib.hh">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/x86-64.h">
+			<Option target="pset3"/>
+		</Unit>
+		<Unit filename="/Users/shelleyjain/browncs/cs61-f19-psets/pset3/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

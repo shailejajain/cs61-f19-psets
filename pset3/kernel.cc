@@ -154,21 +154,41 @@ void kfree(void* kptr) {
 //    %rip and %rsp, gives it a stack page, and marks it as runnable.
 
 void process_setup(pid_t pid, const char* program_name) {
+    log_printf("entered process setup\n");
     init_process(&ptable[pid], 0);
 
     // initialize process page table
-    ptable[pid].pagetable = kernel_pagetable;
+//    ptable[pid].pagetable = kernel_pagetable;
+    // set up initial page table
+    //should it be PAGESIZE
+    ptable[pid].pagetable = (x86_64_pagetable*) kalloc(sizeof(x86_64_pagetable));
+    if (!ptable[pid].pagetable) {
+        panic("Cannot allocate stack memory for process!");
+    }
+    memset(ptable[pid].pagetable, 0, PAGESIZE);
+    vmiter k_it(kernel_pagetable, 0);
+    vmiter p_it(ptable[pid].pagetable, 0);
+    for (; k_it.va() < PROC_START_ADDR; p_it += PAGESIZE, k_it += PAGESIZE) {
+        uint64_t perm = k_it.perm();
+        p_it.map(k_it.pa(), (int) perm);
+    }
 
     // load the program
     program_loader loader(program_name);
-
+    vmiter my_it(ptable[pid].pagetable, PROC_START_ADDR);
+    uintptr_t proc_addr = PROC_START_ADDR + PROC_SIZE * (pid - 1);
     // allocate and map all memory
     for (loader.reset(); loader.present(); ++loader) {
         for (uintptr_t a = round_down(loader.va(), PAGESIZE);
              a < loader.va() + loader.size();
-             a += PAGESIZE) {
+             a += PAGESIZE, proc_addr += PAGESIZE) {
+//            my_it.find(a);
+//            uint64_t writeable = loader.writable() ? PTE_W : 0;
+//            uint64_t present = loader.present() ? PTE_P : 0;
+            //void *new_page = kalloc(PAGESIZE);
             assert(!pages[a / PAGESIZE].used());
             pages[a / PAGESIZE].refcount = 1;
+//            my_it.map(proc_addr, (int) (writeable | PTE_P | PTE_U));
         }
     }
 
@@ -176,6 +196,7 @@ void process_setup(pid_t pid, const char* program_name) {
     for (loader.reset(); loader.present(); ++loader) {
         memset((void*) loader.va(), 0, loader.size());
         memcpy((void*) loader.va(), loader.data(), loader.data_size());
+
     }
 
     // mark entry point
@@ -183,12 +204,14 @@ void process_setup(pid_t pid, const char* program_name) {
 
     // allocate stack
     uintptr_t stack_addr = PROC_START_ADDR + PROC_SIZE * pid - PAGESIZE;
-    assert(!pages[stack_addr / PAGESIZE].used());
+//    assert(!pages[stack_addr / PAGESIZE].used());
     pages[stack_addr / PAGESIZE].refcount = 1;
     ptable[pid].regs.reg_rsp = stack_addr + PAGESIZE;
-
+//    vmiter it(ptable[pid].pagetable, stack_addr);
+//    it.map(stack_addr, PTE_P | PTE_W | PTE_U);
     // mark process as runnable
     ptable[pid].state = P_RUNNABLE;
+    log_printf("exiting process setup\n");
 }
 
 
@@ -328,10 +351,20 @@ uintptr_t syscall(regstate* regs) {
 //    in `u-lib.hh` (but in the handout code, it does not).
 
 int syscall_page_alloc(uintptr_t addr) {
+    //assert(p_it.user()); //return -1
+    log_printf("syscall page alloc addr: %u\n", addr);
+
+    //need to be clarified
+    if (addr < PROC_START_ADDR || addr >= MEMSIZE_VIRTUAL) {
+        log_printf("syscall page alloc addr failure: %u\n", addr);
+        return -1;
+    }
     assert(!pages[addr / PAGESIZE].used());
     pages[addr / PAGESIZE].refcount = 1;
     memset((void*) addr, 0, PAGESIZE);
-    return 0;
+    vmiter p_it(current->pagetable, addr);
+    p_it.map(addr, PTE_P | PTE_W | PTE_U);
+    return addr;
 }
 
 

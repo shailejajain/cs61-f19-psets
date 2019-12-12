@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/shelleyjain/browncs/cs61-f19-psets/pset3/build/qemu-nograb.c
+dlfcn.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+inttypes.h
+-
+
